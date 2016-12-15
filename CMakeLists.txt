@@ -15,7 +15,7 @@ if(NOT ${HAVE_OPENNI})
   return()
 endif()
 
-find_package(Boost COMPONENTS serialization filesystem system thread REQUIRED)
+find_package(Boost COMPONENTS serialization filesystem system thread python REQUIRED)
 find_package(OpenCV REQUIRED)
 
 include_directories(openni_wrapper/include)

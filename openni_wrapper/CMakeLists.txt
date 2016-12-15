@@ -1,5 +1,7 @@
 PROJECT(openni_wrapper)
 
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake/Modules/" ${CMAKE_MODULE_PATH})
+
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/include)
 INCLUDE_DIRECTORIES(${OPENNI_INCLUDE_DIR})
 message(STATUS "OpenNI headers: ${OPENNI_INCLUDE_DIR}")
@@ -30,9 +32,12 @@ set_source_files_properties(${SRCS}
 
 ADD_LIBRARY(openni_wrapper SHARED ${SRCS})
 
+find_package(libusb-1.0 REQUIRED)
+
 target_link_libraries(openni_wrapper ${Boost_LIBRARIES}
                                      ${OpenCV_LIBRARIES}
-                                     OpenNI
+                                     ${OPENNI_LIBRARY}
+				     ${LIBUSB_1_LIBRARIES}
 )
 
 install(TARGETS openni_wrapper

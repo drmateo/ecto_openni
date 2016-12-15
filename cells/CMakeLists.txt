@@ -15,5 +15,4 @@ set_source_files_properties(${SRCS}
   COMPILE_FLAGS "-Wno-deprecated -Wno-strict-aliasing -Wno-unknown-pragmas -Wno-error"
   )
   
-
 link_ecto(ecto_openni openni_wrapper ${OpenCV_LIBS} ${OPENNI_LIBRARY})
