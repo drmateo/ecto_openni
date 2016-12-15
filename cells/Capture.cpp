@@ -254,7 +254,8 @@ namespace ecto_openni
 
 //todo FIXME allow enumeration and selection of devices.
       xn::NodeInfo deviceNode = *it;
-      status = context.CreateProductionTree(deviceNode);
+      xn::ProductionNode deviceProdNode;
+      status = context.CreateProductionTree(deviceNode, deviceProdNode);
       if (status != XN_STATUS_OK)
         NI_STATUS_ERROR("Failed to create production tree: ");
 
